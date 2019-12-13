@@ -71,7 +71,7 @@ class BarChart extends React.Component {
                 val: this.props.data[name][i]
             };
         });
-        toSort.sort((left, right) => descending ? left.val < right.val : left.val > right.val);
+        toSort.sort((left, right) => descending ? right.val - left.val : left.val - right.val);
         toSort = toSort.slice(0, this.maxItems);
         const maxVal = Math.max.apply(Math, toSort.map(item => item.val));
         return [toSort.reduce((ret, item, idx) => ({
